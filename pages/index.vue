@@ -26,30 +26,11 @@
         </div>
       </div>
       <div class="list-task row">
-        <CardItem v-for="(task, i) in resultQuery" :key="i" :task="task" :isGrid="isGrid" />
+        <CardItem v-for="(task, i) in resultQuery" :key="i" :task="task" :isGrid="isGrid" />       <FilterData :selectedPriority="selectedPriority" :tasks="tasks"  :task="task" :isGrid="isGrid"></FilterData>
       </div>
-      <FilterData :tasks="tasks" :selectedPriority="selectedPriority" :task="task" :isGrid="isGrid"></FilterData>
-
-      <!-- //form add task -->
-      <div class="action py-2">
-        <!-- /* Jika isCreating == false maka tombol Add Task tidak akan tampil */
-        /* isCreating = !isCreating berfungsi sebagai switcher toggle */ -->
-        <a href="#" class="add-button" v-if="!isCreating" @click="isCreating =
-          !isCreating">Add Task</a>
-        <div class="add-card" v-else>
-          <div class="card mb-2">
-            <div class="card-body d-flex flex-column p-0">
-              <input class="form-control border-0 mb-2" placeholder="Title" type="text">
-              <textarea class="form-control border-0 small" placeholder="Description" rows="3"></textarea>
-            </div>
-          </div>
-          <div class="button-wrapper d-flex">
-            <button class="btn btn-primary me-2">Save</button>
-            <button class="btn btn-outline-secondary" @click="isCreating =
-              !isCreating">Cancel</button>
-          </div>
-        </div>
-      </div>
+      
+      <!-- // form add task -->
+      <AddTaskForm @task-added="appendTask" />
     </div>
   </div>
 </template>
@@ -58,6 +39,7 @@
 import { BDropdown, BDropdownItem } from 'bootstrap-vue'; // Import komponen BootstrapVue
 import CardItem from "@/components/Card/CardItem.vue"
 import FilterData from "@/components/filtering/FilterData.vue"
+import AddTaskForm from '../components/form/AddTaskForm.vue';
 
 export default {
   layout(context) {
@@ -68,6 +50,7 @@ export default {
     FilterData,
     BDropdown,
     BDropdownItem,
+    AddTaskForm,
   },
   data() {
     return {
@@ -80,53 +63,7 @@ export default {
       // Tipe layout daftar task
       isGrid: false,
       // Daftar task
-      tasks: [
-        {
-          id: 1, 
-          title: "Tugas 1", 
-          description: "Deskripsi Tugas 1", 
-          category: "Pekerjaan", 
-          deadline: "2023-09-15", 
-          priority: "Low", 
-          isDone: false
-        },
-        {
-          id: 2, 
-          title: "Tugas 2", 
-          description: "Deskripsi Tugas 2", 
-          category: "Pendidikan", 
-          deadline: "2023-09-20", 
-          priority: "Medium", 
-          isDone: false
-        },
-        {
-          id: 3, 
-          title: "Tugas 3", 
-          description: "Deskripsi Tugas 3", 
-          category: "Proyek", 
-          deadline: "2023-09-30", 
-          priority: "High", 
-          isDone: false
-        },
-        {
-          id: 4, 
-          title: "Tugas 4", 
-          description: "Deskripsi Tugas 4", 
-          category: "Pribadi", 
-          deadline: "2023-09-25", 
-          priority: "Low", 
-          isDone: false
-        },
-        {
-          id: 5, 
-          title: "Tugas 5", 
-          description: "Deskripsi Tugas 5", 
-          category: "Pekerjaan", 
-          deadline: "2023-10-05", 
-          priority: "Medium", 
-          isDone: false
-        }
-      ]
+      tasks: []
     }
   },
   computed: {
@@ -163,8 +100,12 @@ export default {
     },
     setSelectedPriority(priority) {
       this.selectedPriority = priority;
-    }
+    },
+    appendTask(newTask) {
+        this.tasks.push(newTask);
+      }
   }
 }
 </script>
-<style scoped></style>
+<style scoped>
+</style>

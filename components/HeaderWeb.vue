@@ -17,6 +17,15 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/filtering">Filtering</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/lifecycle">Lifecycle</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/form">form</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/LatihanForm">LatihanForm</a>
+                    </li>
                 </ul>
             </div>
         </div>

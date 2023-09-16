@@ -23,6 +23,11 @@ export default {
       
     ]
   },
+  ssr: true,
+  loading: {
+    color: 'red',
+    height: '10px'
+  },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [

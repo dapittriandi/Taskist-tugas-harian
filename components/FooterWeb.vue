@@ -6,7 +6,7 @@
     </span>
     </div>
     </nav>
-    </template>
+</template>
     
 <script>
 </script>

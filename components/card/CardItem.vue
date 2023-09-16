@@ -16,6 +16,15 @@
       <div class="description-task small text-muted">
         {{ task.description }}
       </div>
+      <div class="description-task small text-muted">
+       Kategori: {{ task.category }}
+      </div>
+      <div class="description-task small text-muted">
+       Deadline: {{ task.deadline }}
+      </div>
+      <div class="description-task small text-muted">
+       Prioritas:  {{ task.priority }}
+      </div>
     </div>
   </div>
 </template>
