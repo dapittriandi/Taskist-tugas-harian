@@ -61,6 +61,9 @@ export default {
 </template>
 <script>
 export default {
+    layout(context) {
+        return 'custom'
+    },
     data() {
         return { msg:''}
     },

@@ -29,7 +29,7 @@
             <input 
             class="form-control border-0 mb-2" 
             placeholder="Deadline" 
-            type="text" 
+            type="date" 
             id="deadline"
             v-model="newTask.deadline">
             <input 
@@ -59,7 +59,7 @@ export default {
         title: '',
         description: '',
         category: '',
-        deadline: '',
+        deadline: Date,
         priority: ''
 
       }
